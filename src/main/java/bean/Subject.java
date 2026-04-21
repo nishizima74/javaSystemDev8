@@ -4,24 +4,17 @@ import java.io.Serializable;
 
 public class Subject implements Serializable {
 
-    /**
-     * 科目コード:String
-     */
-    private String cd;
+    // フィールド（クラス図の上の段）
+    private String cd;      // 科目コード
+    private String name;    // 科目名
+    private School school;  // 学校（Schoolクラスのインスタンス）
 
-    /**
-     * 科目名:String
-     */
-    private String name;
+    // コンストラクタ
+    public Subject() {
+    }
 
-    /**
-     * 学校:School
-     */
-    private School school;
+    // メソッド（クラス図の下の段：getter/setter）
 
-    /**
-     * ゲッター・セッター
-     */
     public String getCd() {
         return cd;
     }

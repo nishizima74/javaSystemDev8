@@ -17,7 +17,7 @@
 
             <!-- 新規登録リンク-->
             <div class="px-4 mb-3 text-end">
-                <a href="#" class="new">新規登録</a>
+                <a href="SubjectCreate.action" class="new">新規登録</a>
             </div>
 
             <!-- 科目一覧テーブル -->
@@ -34,18 +34,18 @@
 
                     <tbody>
                         <!-- 科目がある場合 -->
-                        <c:forEach var="subject" items="${subjects}">
-                            <tr>
-                                <td>${subject.cd}</td>
-                                <td>${subject.name}</td>
-                                <td>
-                                    <a href="#" class="change">変更</a>
-                                </td>
-                                <td>
-                                    <a href="#" class="delete">削除</a>
-                                </td>
-                            </tr>
-                        </c:forEach>
+						<c:forEach var="subject" items="${subjects}">
+						    <tr>
+						        <td>${subject.cd}</td>
+						        <td>${subject.name}</td>
+						        <td>
+						            <a href="SubjectUpdate.action?cd=${subject.cd}">変更</a>
+						        </td>
+						        <td>
+						            <a href="SubjectDelete.action?cd=${subject.cd}">削除</a>
+						        </td>
+						    </tr>
+						</c:forEach>
 
                         <!-- 科目が無い場合 -->
                     </tbody>

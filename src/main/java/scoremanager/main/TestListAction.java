@@ -26,18 +26,20 @@ public class TestListAction extends Action {
         List<String> class_list = cNumDao.filter(teacher.getSchool());
         List<bean.Subject> subject_list = sDao.filter(teacher.getSchool());
         
-        // 入学年度のリスト（現在から前後5年分など）を作成
+        // --- 修正箇所：入学年度のリスト（現在から過去10年分）を作成 ---
+     // --- 修正箇所：入学年度のリスト（過去10年から現在までを昇順で）を作成 ---
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         List<Integer> ent_year_list = new java.util.ArrayList<>();
-        for (int i = year - 5; i <= year + 5; i++) {
+        
+        // 10年前から現在の年までを順番にリストに追加
+        for (int i = year - 10; i <= year; i++) {
             ent_year_list.add(i);
         }
+        // ------------------------------------------------------------------
+        // -------------------------------------------------------
 
         // 2. リクエスト属性にセット
-        
-     // 既存のexecuteメソッド内に追加
-     // 検索条件をリクエストから取得し、そのまま戻す（条件保持のため）
         request.setAttribute("f1", request.getParameter("f1"));
         request.setAttribute("f2", request.getParameter("f2"));
         request.setAttribute("f3", request.getParameter("f3"));
@@ -48,7 +50,6 @@ public class TestListAction extends Action {
         request.setAttribute("ent_year_list", ent_year_list);
 
         // 3. 成績参照画面（JSP）へフォワード
-        // フォルダ構成に合わせてパスを調整してください
         request.getRequestDispatcher("test_list.jsp").forward(request, response);
     }
 }

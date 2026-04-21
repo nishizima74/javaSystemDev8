@@ -34,7 +34,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/scoremanager/main/estList.action" class="text-decoration-none">
+                            <a href="${pageContext.request.contextPath}/scoremanager/main/TestList.action" class="text-decoration-none">
                                 成績参照
                             </a>
                         </li>

@@ -122,23 +122,41 @@ public class TestDao extends Dao {
     private boolean save(Test test, Connection connection) throws Exception {
         PreparedStatement st = null;
         int count = 0;
+
         try {
-            // MERGE文で登録または更新を行う
-            st = connection.prepareStatement(
-                "merge into test (student_no, subject_cd, school_cd, no, point, class_num) "
-                + "key(student_no, subject_cd, school_cd, no) values (?, ?, ?, ?, ?, ?)");
-            
-            st.setString(1, test.getStudent().getNo());
-            st.setString(2, test.getSubject().getCd());
-            st.setString(3, test.getSchool().getCd());
-            st.setInt(4, test.getNo());
-            st.setInt(5, test.getPoint());
-            st.setString(6, test.getClassNum());
+            // ★削除処理（追加）
+            if (test.getPoint() < 0) {
+
+                st = connection.prepareStatement(
+                    "delete from test where student_no=? and subject_cd=? and school_cd=? and no=?"
+                );
+
+                st.setString(1, test.getStudent().getNo());
+                st.setString(2, test.getSubject().getCd());
+                st.setString(3, test.getSchool().getCd());
+                st.setInt(4, test.getNo());
+
+            } else {
+                // ★登録・更新（今まで通り）
+                st = connection.prepareStatement(
+                    "merge into test (student_no, subject_cd, school_cd, no, point, class_num) "
+                  + "key(student_no, subject_cd, school_cd, no) values (?, ?, ?, ?, ?, ?)"
+                );
+
+                st.setString(1, test.getStudent().getNo());
+                st.setString(2, test.getSubject().getCd());
+                st.setString(3, test.getSchool().getCd());
+                st.setInt(4, test.getNo());
+                st.setInt(5, test.getPoint());
+                st.setString(6, test.getClassNum());
+            }
 
             count = st.executeUpdate();
+
         } finally {
             if (st != null) st.close();
         }
+
         return count > 0;
     }
 }

@@ -45,10 +45,18 @@ public class TestRegistExecuteAction extends Action {
         for (Test test : tests) {
             String pointStr = request.getParameter("point_" + test.getStudent().getNo());
             
-            // 未入力（空文字）のチェックもJava側で行う
+         // 未入力（空文字）のチェック
             if (pointStr == null || pointStr.isEmpty()) {
-                errors.add(test.getStudent().getName() + "さんの点数を入力してください");
-                continue; // 次の学生へ
+
+                // ★既にデータがある場合のみ削除対象にする
+                if (test.getPoint() >= 0) {
+                    test.setSubject(subject);
+                    test.setNo(num);
+                    test.setPoint(-1);   // ← 削除フラグ
+                    updateList.add(test);
+                }
+
+                continue;
             }
 
             try {

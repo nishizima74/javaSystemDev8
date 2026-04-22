@@ -12,10 +12,11 @@ import bean.TestListStudent;
 public class TestListStudentDao extends Dao {
 
     // クラス図にある基本となるSQL文
-	private String baseSql = "select sub.name, t.subject_cd, t.no, t.point "
-            + "from test t "
-            + "left join subject sub on t.subject_cd = sub.cd and t.school_cd = sub.school_cd "
-            + "where t.student_no LIKE ? and t.school_cd = ?";
+	private String baseSql = 
+		    "select sub.name, t.subject_cd, t.no, t.point "
+		  + "from test t "
+		  + "left join subject sub on t.subject_cd = sub.cd and t.school_cd = sub.school_cd "
+		  + "where TRIM(t.student_no) = ? and t.school_cd = ?";
 
     /**
      * ResultSetからリストへの変換処理（共通化メソッド）

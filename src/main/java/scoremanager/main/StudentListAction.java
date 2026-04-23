@@ -37,6 +37,12 @@ public class StudentListAction extends Action {
 
         int entYear = 0;
         boolean isAttend = false;
+        
+     // 在学フラグの判定を先にやる！
+        if (isAttendStr != null) {
+            isAttend = true;
+            request.setAttribute("f3", isAttendStr);
+        }
 
         if (entYearStr != null && !entYearStr.isEmpty()) {
             entYear = Integer.parseInt(entYearStr);

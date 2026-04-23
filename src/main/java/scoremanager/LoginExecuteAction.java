@@ -25,6 +25,7 @@ public class LoginExecuteAction extends Action {
         if (id == null || id.isEmpty() || password == null || password.isEmpty()) {
             errors.add("IDとパスワードを入力してください");
             request.setAttribute("errors", errors);
+            request.setAttribute("id", id); // ★これを追加：入力されたIDを戻す
             // ログイン画面へ戻る
             request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
@@ -47,8 +48,9 @@ public class LoginExecuteAction extends Action {
             response.sendRedirect("Menu.action");
         } else {
             // 【認証失敗：IDかPWが正しくない場合】
-            errors.add("認証に失敗しました。IDまたはパスワードが正しくありません");
+            errors.add("ログインに失敗しました。IDまたはパスワードが正しくありません");
             request.setAttribute("errors", errors);
+            request.setAttribute("id", id); // ★これを追加：入力されたIDを戻す
             // ログイン画面へ戻る
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }

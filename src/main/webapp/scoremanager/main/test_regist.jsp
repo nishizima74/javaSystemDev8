@@ -7,11 +7,12 @@
 
 <section class="me-4">
 
-<h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">
+<h2 class="h3 mb-3 fw-norma bg-secondary bg-opacity-10 py-2 px-4">
     成績管理
 </h2>
 
 <%-- ================= 検索フォーム ================= --%>
+<div class="card p-4 mb-4">
 <form action="TestRegist.action" method="get" class="px-4 mb-4">
     <div class="row g-3 align-items-end">
         <%-- 入学年度 --%>
@@ -63,6 +64,7 @@
         </div>
     </div>
 </form>
+</div>
 
 <%-- ================= 学生一覧 + 登録フォーム ================= --%>
 <c:if test="${not empty tests}"> <%-- tests がある場合に表示 --%>

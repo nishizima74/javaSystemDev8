@@ -28,6 +28,7 @@
                     </div>
                 </form>
 
+
                 <div>
                     <a href="SubjectList.action">戻る</a>
                 </div>

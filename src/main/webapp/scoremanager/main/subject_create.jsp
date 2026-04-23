@@ -15,13 +15,6 @@
 
             <div class="px-4">
 
-                <!-- エラーメッセージ（重複など） -->
-                <c:if test="${not empty errors}">
-                    <div class="text-danger mb-3">
-                        ${errors}
-                    </div>
-                </c:if>
-
                 <!-- 登録フォーム -->
                 <form action="SubjectCreateExecute.action" method="post">
 
@@ -36,6 +29,13 @@
                             maxlength="3"
                             required
                             placeholder="科目コードを入力してください">
+
+                        <!-- エラーメッセージはここに出す -->
+                        <c:if test="${not empty errors}">
+                            <div class="text-warning small mt-1">
+                                ${errors}
+                            </div>
+                        </c:if>
                     </div>
 
                     <!-- 科目名 -->

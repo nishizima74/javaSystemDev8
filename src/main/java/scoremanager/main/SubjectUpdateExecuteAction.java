@@ -21,7 +21,7 @@ public class SubjectUpdateExecuteAction extends Action {
         String name = req.getParameter("name");
 
         SubjectDao sDao = new SubjectDao();
-        // 更新前に存在チェック（画像3の「変更中に削除された場合」の対応）
+
         Subject existing = sDao.get(cd, teacher.getSchool());
 
         if (existing != null) {

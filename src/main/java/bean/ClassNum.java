@@ -12,6 +12,7 @@ public class ClassNum implements Serializable {
 	/**
 	 * 学校:School
 	 */
+	
 	private School school;
 
 	
@@ -26,6 +27,7 @@ public class ClassNum implements Serializable {
 		this.class_num = class_num;
 	}
 
+	
 	public School getSchool() {
 		return school;
 	}

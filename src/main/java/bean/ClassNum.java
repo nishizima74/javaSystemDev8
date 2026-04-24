@@ -27,6 +27,7 @@ public class ClassNum implements Serializable {
 		this.class_num = class_num;
 	}
 
+	
 	public School getSchool() {
 		return school;
 	}

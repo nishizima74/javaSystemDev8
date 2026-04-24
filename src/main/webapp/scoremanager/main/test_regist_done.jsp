@@ -17,7 +17,7 @@
             </h2>
 
             <%-- ② 完了メッセージ --%>
-            <div class="alert alert-success mx-4">
+            <div class="bg-success text-dark rounded-0 py-2 text-center mb-4" style="--bs-bg-opacity: .5;">
                 登録が完了しました
             </div>
 

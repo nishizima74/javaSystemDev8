@@ -27,7 +27,7 @@
 
 							<!-- エラーメッセージ -->
 							<c:if test="${not empty errors}">
-								<ul class="mb-4 small"">
+								<ul class="mb-4 small">
 									<c:forEach var="error" items="${errors}">
 										<li>${error}</li>
 									</c:forEach>
@@ -38,18 +38,25 @@
 
 							<form action="LoginExecute.action" method="post">
 
-								<%-- ID入力欄（フローティングラベル） --%>
+								<%-- ID入力欄 --%>
 								<div class="form-floating mb-3">
-									<input type="text" name="id" class="form-control"
-										id="floatingId" placeholder="I D" value="${id}" required>
-									<label for="floatingId" class="text-secondary">I D</label>
+								    <input type="text" name="id" id="id"
+								        class="form-control"
+								        placeholder="I D"
+								        value="${id}"
+								        maxlength="10"
+								        required>
+								    <label for="id" class="text-secondary">I D</label>
 								</div>
-
-								<%-- パスワード入力欄（フローティングラベル） --%>
+								
+								<%-- パスワード入力欄 --%>
 								<div class="form-floating mb-3">
-									<input type="password" name="password" class="form-control"
-										id="password" placeholder="パスワード" required> <label
-										for="password" class="text-secondary">パスワード</label>
+								    <input type="password" name="password" id="password"
+								        class="form-control"
+								        placeholder="パスワード"
+								        maxlength="30"
+								        required>
+								    <label for="password" class="text-secondary">パスワード</label>
 								</div>
 								<!-- ④ チェックボックス -->
 								<div class="mb-4 d-flex justify-content-center align-items-center">

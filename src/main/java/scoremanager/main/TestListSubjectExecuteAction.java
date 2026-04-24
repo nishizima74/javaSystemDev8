@@ -65,7 +65,7 @@ public class TestListSubjectExecuteAction extends Action {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         List<Integer> ent_year_list = new java.util.ArrayList<>();
-        for (int i = year - 5; i <= year + 5; i++) {
+        for (int i = year - 10; i <= year; i++) {
             ent_year_list.add(i);
         }
         request.setAttribute("ent_year_list", ent_year_list);

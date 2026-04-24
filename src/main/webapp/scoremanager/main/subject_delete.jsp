@@ -17,7 +17,7 @@
                         <input type="submit" class="btn btn-danger" value="削除">
                     </div>
                 </form>
-                <div><a href="SubjectList.action">キャンセル（一覧へ戻る）</a></div>
+                <div><a href="SubjectList.action">戻る</a></div>
             </div>
         </section>
     </c:param>

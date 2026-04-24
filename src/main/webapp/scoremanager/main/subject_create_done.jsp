@@ -15,14 +15,13 @@
                     登録が完了しました
                 </div>
 
-                <div class="mt-4">
-                    <div class="mb-2">
-                        <a href="SubjectCreate.action">続けて登録する</a>
-                    </div>
-                    <div>
-                        <a href="SubjectList.action">科目一覧</a>
-                    </div>
-                </div>
+                <%-- ③ 戻るリンク --%>
+            <div class="px-4 mt-4">
+                <a href="SubjectCreate.action" class="me-4">戻る</a>
+
+                <%-- ④ 一覧へ --%>
+                <a href="SubjectList.action">科目一覧</a>
+            </div>
             </div>
         </section>
     </c:param>

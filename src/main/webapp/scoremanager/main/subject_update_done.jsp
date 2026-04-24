@@ -15,9 +15,12 @@
                     変更が完了しました
                 </div>
 
-                <div class="mt-4">
-                    <a href="SubjectList.action">科目一覧</a>
-                </div>
+                <%-- ③ 戻るリンク --%>
+            <div class="px-4 mt-4">
+                <a href="SubjectUpdate.action" class="me-4">戻る</a>
+
+                <%-- ④ 一覧へ --%>
+                <a href="SubjectList.action">科目一覧</a>
             </div>
         </section>
     </c:param>

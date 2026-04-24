@@ -12,6 +12,7 @@ public class ClassNum implements Serializable {
 	/**
 	 * 学校:School
 	 */
+	
 	private School school;
 
 	

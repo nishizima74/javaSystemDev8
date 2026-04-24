@@ -52,21 +52,37 @@ public class TestRegistAction extends Action {
         numSet.add(1);
         numSet.add(2);
 
-        // 2. 検索処理（パラメータが存在する場合）
-        if (entYearStr != null && !entYearStr.equals("0")) {
+     // --- 2. 検索処理（パラメータが存在する場合） ---
+        // すべての項目が選択されているかチェック
+        if (entYearStr != null && classNum != null && subjectCd != null && numStr != null &&
+            !entYearStr.equals("0") && !entYearStr.equals("") && 
+            !classNum.equals("") && !subjectCd.equals("") && !numStr.equals("")) {
+            
             int entYear = Integer.parseInt(entYearStr);
             int num = Integer.parseInt(numStr);
             
             // 科目コードからSubject型に変換
             Subject subject = subDao.get(subjectCd, school);
 
-            // 成績データ取得（Studentを軸にLEFT JOINしたリスト）
-            // これにより成績未登録の生徒もリストに含まれる
+            // 成績データ取得
             List<Test> tests = tDao.filter(entYear, classNum, subject, num, school);
 
             // 検索結果をリクエストにセット
             request.setAttribute("tests", tests);
-            request.setAttribute("subject", subject); // 画面表示用
+            request.setAttribute("subject", subject);
+            
+            // 0件だった場合の処理（任意で追加）
+            if (tests == null || tests.isEmpty()) {
+                request.setAttribute("message2", "学生情報が存在しませんでした");
+            }
+            
+        } else {
+            // どれか一つでも選択されていない場合（かつ、初期表示でない場合）
+            // 最初（URLを叩いた直後）は全部nullなので、ボタンを押した時だけメッセージを出したい場合は
+            // 他のパラメータの有無などで判定を調整しますが、基本はこの形でメッセージをセットします。
+            if (entYearStr != null || classNum != null || subjectCd != null || numStr != null) {
+                request.setAttribute("message", "入学年度とクラスと科目と回数を選択してください");
+            }
         }
 
         // 3. JSPへデータを渡す

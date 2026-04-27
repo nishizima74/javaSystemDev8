@@ -1,3 +1,5 @@
+<%--西嶋 --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
@@ -6,20 +8,18 @@
 		<section class="me-4">
 			<h2 class="h2 mb-3">成績一覧（科目）</h2>
 
-			<%-- 検索フォーム部分は以前の test_list.jsp と同じものを再利用 --%>
+			<%-- 検索フォーム --%>
 			<div class="card p-4 mb-4">
 				<%-- 科目情報検索フォーム --%>
 				<form action="TestListSubjectExecute.action" method="get">
 					<div class="row align-items-center">
-						<%-- rowを追加して横並びにし、上下中央揃えに --%>
 
-						<%-- 左側：見出し (横幅2つ分を使用) --%>
+						<%-- 見出し --%>
 						<div class="col-md-2">
 							<p class="fw-bold mb-0">科目情報</p>
-							<%-- border-bottom と pb-2 を消しました --%>
 						</div>
 
-						<%-- 右側：入力項目 (横幅10個分を使用) --%>
+						<%-- 入力項目--%>
 						<div class="col-md-10">
 							<div class="row g-3 align-items-end">
 								<%-- 入学年度 --%>
@@ -64,10 +64,9 @@
 									<button type="submit" class="btn btn-secondary w-100">検索</button>
 								</div>
 							</div>
-							<%-- ★ ここに追加！Actionでセットした "message" を表示する --%>
 							<c:if test="${not empty message}">
 								<div class="col-12">
-								<p class="text-warning mb-0 small" style="margin-top: 10px;">${message}</p>
+									<p class="text-warning mb-0 small" style="margin-top: 10px;">${message}</p>
 								</div>
 							</c:if>
 
@@ -82,15 +81,13 @@
 				<%-- 学生情報検索フォーム --%>
 				<form action="TestListStudentExecute.action" method="get">
 					<div class="row align-items-center">
-						<%-- rowを追加して横並びに --%>
 
-						<%-- 左側：見出し (科目側と同じ col-md-2 にして幅を揃える) --%>
+						<%-- 見出し --%>
 						<div class="col-md-2">
 							<p class="fw-bold mb-0">学生情報</p>
-							<%-- 線を消して、余白(mb-0)を調整 --%>
 						</div>
 
-						<%-- 右側：入力項目とボタン --%>
+						<%-- 入力項目とボタン --%>
 						<div class="col-md-10">
 							<div class="row g-3 align-items-end">
 								<%-- 学生番号入力欄 --%>
@@ -140,7 +137,6 @@
 									<td>${test.classNum}</td>
 									<td>${test.studentNo}</td>
 									<td>${test.studentName}</td>
-									<%-- Map(points)から1回目と2回目の点数を取得 --%>
 									<td>${test.getPoint(1)}</td>
 									<td>${test.getPoint(2)}</td>
 								</tr>

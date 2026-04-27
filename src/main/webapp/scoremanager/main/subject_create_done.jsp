@@ -1,3 +1,4 @@
+<%--杉本 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -15,11 +16,11 @@
                     登録が完了しました
                 </div>
 
-                <%-- ③ 戻るリンク --%>
+                <%--  戻るリンク --%>
             <div class="px-4 mt-4">
                 <a href="SubjectCreate.action" class="me-4">戻る</a>
 
-                <%-- ④ 一覧へ --%>
+                <%--  一覧へ --%>
                 <a href="SubjectList.action">科目一覧</a>
             </div>
             </div>

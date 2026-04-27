@@ -63,7 +63,7 @@ public class ClassNumDao extends Dao {
 
 		return classNum;
 	}
-	
+
 	public List<String> filter(School school) throws Exception {
 		// リストを初期化
 		List<String> list = new ArrayList<>();
@@ -109,16 +109,5 @@ public class ClassNumDao extends Dao {
 
 		return list;
 	}
-	
-	
-//	一旦割愛
-//	public boolean sava(ClassNum classNum) throws Exception {
-//		
-//	}
-//
-//	public boolean sava(ClassNum classNum, String newClassNum) throws Exception {
-//		
-//	}
-	
 
 }

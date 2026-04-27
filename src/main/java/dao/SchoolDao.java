@@ -1,3 +1,5 @@
+//水嶋、西嶋
+
 package dao;
 
 import java.sql.Connection;
@@ -9,68 +11,61 @@ import bean.School;
 
 public class SchoolDao extends Dao {
 
-    /**
-     * getメソッド 学校コードを指定して学校インスタンスを1件取得する
-     * @param cd 学校コード
-     * @return 学校クラスのインスタンス（存在しない場合はnull）
-     * @throws Exception
-     */
-    public School get(String cd) throws Exception {
+	public School get(String cd) throws Exception {
 
-        // 学校インスタンスを初期化
-        School school = new School();
+		// 学校インスタンスを初期化
+		School school = new School();
 
-        // データベースのコネクションを確立
-        Connection connection = getConnection();
+		// データベースのコネクションを確立
+		Connection connection = getConnection();
 
-        // プリペアードステートメント
-        PreparedStatement statement = null;
+		// プリペアードステートメント
+		PreparedStatement statement = null;
 
-        try {
-            // SQLをセット
-            statement = connection.prepareStatement(
-                "select * from school where cd = ?"
-            );
+		try {
+			// SQLをセット
+			statement = connection.prepareStatement(
+					"select * from school where cd = ?");
 
-            // パラメータをバインド
-            statement.setString(1, cd);
+			// パラメータをバインド
+			statement.setString(1, cd);
 
-            // 実行
-            ResultSet rSet = statement.executeQuery();
+			// 実行
+			ResultSet rSet = statement.executeQuery();
 
-            if (rSet.next()) {
-                // 値をセット
-                school.setCd(rSet.getString("cd"));
-                school.setName(rSet.getString("name"));
-            } else {
-                // データがない場合
-                school = null;
-            }
+			if (rSet.next()) {
+				// 値をセット
+				school.setCd(rSet.getString("cd"));
+				school.setName(rSet.getString("name"));
+			} else {
+				// データがない場合
+				school = null;
+			}
 
-        } catch (Exception e) {
-            throw e;
+		} catch (Exception e) {
+			throw e;
 
-        } finally {
+		} finally {
 
-            // ステートメントを閉じる
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException sqle) {
-                    throw sqle;
-                }
-            }
+			// ステートメントを閉じる
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
 
-            // コネクションを閉じる
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException sqle) {
-                    throw sqle;
-                }
-            }
-        }
+			// コネクションを閉じる
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException sqle) {
+					throw sqle;
+				}
+			}
+		}
 
-        return school;
-    }
+		return school;
+	}
 }

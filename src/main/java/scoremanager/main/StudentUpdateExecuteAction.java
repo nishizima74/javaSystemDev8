@@ -1,3 +1,4 @@
+//西嶋
 package scoremanager.main;
 
 import bean.Student;

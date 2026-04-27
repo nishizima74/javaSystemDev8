@@ -1,3 +1,4 @@
+//水嶋
 package scoremanager;
 
 import java.util.ArrayList;
@@ -14,31 +15,31 @@ public class LoginExecuteAction extends Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        // --- 1. 入力データの取得 ---
+        //  入力データの取得
         String id = request.getParameter("id");
         String password = request.getParameter("password");
         
         // エラーメッセージ格納用
         List<String> errors = new ArrayList<>();
         
-        // --- 2. 未入力チェック (シーケンス図の最初の alt ブロック) ---
+        // 未入力チェック 
         if (id == null || id.isEmpty() || password == null || password.isEmpty()) {
             errors.add("IDとパスワードを入力してください");
             request.setAttribute("errors", errors);
-            request.setAttribute("id", id); // ★これを追加：入力されたIDを戻す
+            request.setAttribute("id", id); 
             // ログイン画面へ戻る
             request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
 
-        // --- 3. 認証処理 (TeacherDaoを起動) ---
+        //  認証処理 (TeacherDaoを起動)
         TeacherDao tDao = new TeacherDao();
         // IDとPWを元に認証・データ取得
         Teacher teacher = tDao.login(id, password);
 
-        // --- 4. 判定 (シーケンス図の後半の alt ブロック) ---
+        // 判定
         if (teacher != null) {
-            // 【認証成功】
+            // 認証成功
             // セッションを開始し、ユーザーデータを保存
             HttpSession session = request.getSession();
             session.setAttribute("user", teacher);
@@ -47,10 +48,10 @@ public class LoginExecuteAction extends Action {
             // FrontControllerのルールに合わせて ".action" をつけてリダイレクトします
             response.sendRedirect("Menu.action");
         } else {
-            // 【認証失敗：IDかPWが正しくない場合】
+            // 認証失敗：IDかPWが正しくない場合
             errors.add("ログインに失敗しました。IDまたはパスワードが正しくありません");
             request.setAttribute("errors", errors);
-            request.setAttribute("id", id); // ★これを追加：入力されたIDを戻す
+            request.setAttribute("id", id); 
             // ログイン画面へ戻る
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }

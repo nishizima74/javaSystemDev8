@@ -1,3 +1,4 @@
+<%--西嶋 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
@@ -19,7 +20,6 @@
 			<div class="row justify-content-center mt-5">
 				<div class="col-md-15">
 					<div class="card shadow-sm">
-						<!-- ① 画面タイトル（h2） -->
 						<div class="card-header bg-secondary bg-opacity-10 py-3">
 							<h2 class="h4 text-center mb-0">ログイン</h2>
 						</div>
@@ -40,38 +40,32 @@
 
 								<%-- ID入力欄 --%>
 								<div class="form-floating mb-3">
-								    <input type="text" name="id" id="id"
-								        class="form-control"
-								        placeholder="I D"
-								        value="${id}"
-								        maxlength="10"
-								        required>
-								    <label for="id" class="text-secondary">I D</label>
+									<input type="text" name="id" id="id" class="form-control"
+										placeholder="I D" value="${id}" maxlength="10" required>
+									<label for="id" class="text-secondary">I D</label>
 								</div>
-								
+
 								<%-- パスワード入力欄 --%>
 								<div class="form-floating mb-3">
-								    <input type="password" name="password" id="password"
-								        class="form-control"
-								        placeholder="パスワード"
-								        maxlength="30"
-								        required>
-								    <label for="password" class="text-secondary">パスワード</label>
+									<input type="password" name="password" id="password"
+										class="form-control" placeholder="パスワード" maxlength="30"
+										required> <label for="password" class="text-secondary">パスワード</label>
 								</div>
-								<!-- ④ チェックボックス -->
-								<div class="mb-4 d-flex justify-content-center align-items-center">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="chk_d_ps"
-										name="chk_d_ps" onclick="togglePassword()">
+								<!--  チェックボックス -->
+								<div
+									class="mb-4 d-flex justify-content-center align-items-center">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="chk_d_ps"
+											name="chk_d_ps" onclick="togglePassword()">
 
-									<!-- ⑤ ラベル -->
-									<label class="form-check-label small" for="chk_d_ps">
-										パスワードを表示 </label>
-								</div>
+										<!--  ラベル -->
+										<label class="form-check-label small" for="chk_d_ps">
+											パスワードを表示 </label>
+									</div>
 								</div>
 
 
-								<!-- ⑥ ログインボタン -->
+								<!--  ログインボタン -->
 								<div class="text-center">
 									<button type="submit" name="login" value="ログイン"
 										class="btn btn-primary w-50">ログイン</button>

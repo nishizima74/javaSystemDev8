@@ -3,22 +3,11 @@ package bean;
 import java.io.Serializable;
 
 public class ClassNum implements Serializable {
-	
-	/**
-	 * クラス名:Class_num
-	 */
+
 	private String class_num;
-	
-	/**
-	 * 学校:School
-	 */
-	
+
 	private School school;
 
-	
-	/**
-	 * ゲッター・セッター
-	 */
 	public String getClass_num() {
 		return class_num;
 	}
@@ -27,7 +16,6 @@ public class ClassNum implements Serializable {
 		this.class_num = class_num;
 	}
 
-	
 	public School getSchool() {
 		return school;
 	}
@@ -35,12 +23,5 @@ public class ClassNum implements Serializable {
 	public void setSchool(School school) {
 		this.school = school;
 	}
-	
-}
-	
 
-	
-	
-	
-	
-	
+}

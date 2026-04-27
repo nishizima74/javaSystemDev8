@@ -1,36 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%--西嶋 --%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
 <c:import url="/common/base.jsp">
 
-    <c:param name="title">
+	<c:param name="title">
         得点管理システム - 成績登録完了
     </c:param>
 
-    <c:param name="content">
+	<c:param name="content">
 
-        <section class="me-4">
+		<section class="me-4">
 
-            <%-- ① タイトル --%>
-            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">
-                成績管理
-            </h2>
+			<%-- タイトル --%>
+			<h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">
+				成績管理</h2>
 
-            <%-- ② 完了メッセージ --%>
-            <div class="bg-success text-dark rounded-0 py-2 text-center mb-4" style="--bs-bg-opacity: .5;">
-                登録が完了しました
-            </div>
+			<%--  完了メッセージ --%>
+			<div class="bg-success text-dark rounded-0 py-2 text-center mb-4"
+				style="--bs-bg-opacity: .5;">登録が完了しました</div>
 
-            <%-- ③ 戻るリンク --%>
-            <div class="px-4 mt-4">
-                <a href="TestRegist.action" class="me-4">戻る</a>
+			<%--  戻るリンク --%>
+			<div class="px-4 mt-4">
+				<a href="TestRegist.action" class="me-4">戻る</a>
 
-                <%-- ④ 一覧へ --%>
-                <a href="TestList.action">成績参照</a>
-            </div>
+				<%--  一覧へ --%>
+				<a href="TestList.action">成績参照</a>
+			</div>
 
-        </section>
+		</section>
 
-    </c:param>
+	</c:param>
 
 </c:import>

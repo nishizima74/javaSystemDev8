@@ -1,25 +1,25 @@
+<%--西嶋 --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <c:import url="/common/base.jsp">
 	<c:param name="content">
 		<section class="me-4">
-			<%-- No.1 画面タイトル --%>
+			<%-- 画面タイトル --%>
 			<h2 class="h3 mb-3 fw-norma bg-secondary bg-opacity-10 py-2 px-4">成績参照</h2>
 
 			<div class="card p-4 mb-4">
 				<%-- 科目情報検索フォーム --%>
 				<form action="TestListSubjectExecute.action" method="get">
 					<div class="row align-items-center">
-						<%-- rowを追加して横並びにし、上下中央揃えに --%>
 
-						<%-- 左側：見出し (横幅2つ分を使用) --%>
+						<%-- 見出し--%>
 						<div class="col-md-2">
 							<p class="fw-bold mb-0">科目情報</p>
-							<%-- border-bottom と pb-2 を消しました --%>
 						</div>
 
-						<%-- 右側：入力項目 (横幅10個分を使用) --%>
+						<%-- 入力項目 --%>
 						<div class="col-md-10">
 							<div class="row g-3 align-items-end">
 								<%-- 入学年度 --%>
@@ -74,15 +74,13 @@
 				<%-- 学生情報検索フォーム --%>
 				<form action="TestListStudentExecute.action" method="get">
 					<div class="row align-items-center">
-						<%-- rowを追加して横並びに --%>
 
-						<%-- 左側：見出し (科目側と同じ col-md-2 にして幅を揃える) --%>
+						<%-- 見出し --%>
 						<div class="col-md-2">
 							<p class="fw-bold mb-0">学生情報</p>
-							<%-- 線を消して、余白(mb-0)を調整 --%>
 						</div>
 
-						<%-- 右側：入力項目とボタン --%>
+						<%--入力項目とボタン --%>
 						<div class="col-md-10">
 							<div class="row g-3 align-items-end">
 								<%-- 学生番号入力欄 --%>

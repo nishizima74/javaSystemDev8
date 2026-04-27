@@ -1,3 +1,4 @@
+//山本
 package scoremanager.main;
 
 import bean.Teacher;
@@ -8,19 +9,18 @@ import tool.Action;
 
 public class SubjectCreateAction extends Action {
 
-    @Override
-    public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	@Override
+	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
-        // セッション取得
-        HttpSession session = req.getSession();
+		// セッション取得
+		HttpSession session = req.getSession();
 
-        // ログイン中の教員を取得
-        Teacher teacher = (Teacher) session.getAttribute("user");
+		// ログイン中の教員を取得
+		Teacher teacher = (Teacher) session.getAttribute("user");
 
-        // 必要であれば JSP 側で使えるようにセット
-        req.setAttribute("teacher", teacher);
+		req.setAttribute("teacher", teacher);
 
-        // 科目登録画面へフォワード
-        req.getRequestDispatcher("subject_create.jsp").forward(req, res);
-    }
+		// 科目登録画面へフォワード
+		req.getRequestDispatcher("subject_create.jsp").forward(req, res);
+	}
 }
